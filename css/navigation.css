@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Navegação
+   ========================================================================== */
+
+/* Menu Principal (Desktop) */
+header nav {
+    /* Garante que a navegação ocupe o espaço necessário */
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav > ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-sm);
+    padding: 0;
+    margin: 0;
+}
+
+header nav > ul > li {
+    position: relative; /* Para o submenu dropdown */
+}
+
+header nav a {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--color-neutral-dark);
+    font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+header nav a:hover {
+    color: var(--color-primary-base);
+    background-color: var(--color-neutral-light);
+    text-decoration: none;
+}
+
+/* Submenu Dropdown (Ainda não implementado no HTML, mas estilizado para uso futuro) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    list-style: none;
+    padding: var(--space-xs) 0;
+}
+
+.dropdown-menu li a {
+    padding: 8px var(--space-sm);
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--color-neutral-light);
+}
+
+/* Mostrar dropdown no hover */
+header nav > ul > li:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Menu Mobile (Menu Hambúrguer) */
+.nav-toggle {
+    /* Oculto por padrão no desktop */
+    display: none;
+    cursor: pointer;
+    font-size: var(--font-size-xl);
+    background: none;
+    border: none;
+    color: var(--color-primary-dark);
+    padding: 0;
+}
+
+.nav-toggle-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary-dark);
+    margin: 5px 0;
+    transition: all var(--transition-speed);
+}
+
+/* Estilo do menu mobile (oculto por padrão) */
+.nav-menu-mobile {
+    display: none; /* Controlado por JS, mas oculto por padrão */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-white);
+    z-index: 2000;
+    padding-top: var(--space-xl);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+}
+
+.nav-menu-mobile li a {
+    padding: var(--space-sm) var(--space-md);
+    display: block;
+    border-bottom: 1px solid var(--color-neutral-light);
+    color: var(--color-neutral-dark);
+}
+
+.nav-menu-mobile li:last-child a {
+    border-bottom: none;
+}
+
+/* Media Query para Mobile */
+@media (max-width: 767px) {
+    /* Oculta o menu desktop */
+    header nav {
+        display: none;
+    }
+
+    /* Mostra o botão hambúrguer */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Alinha o título e o hambúrguer */
+    header .container {
+        justify-content: space-between;
+    }
+}
+
+/* Estilo para quando o menu mobile estiver aberto (simulação de classe JS) */
+/* body.menu-open .nav-menu-mobile {
+    display: block;
+} */

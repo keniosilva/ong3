@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Componentes de Interface
+   ========================================================================== */
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-base);
+    color: var(--color-white);
+    border-color: var(--color-primary-base);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary-base);
+    color: var(--color-neutral-dark);
+    border-color: var(--color-secondary-base);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: var(--color-secondary-dark);
+    border-color: var(--color-secondary-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-primary-base);
+    border-color: var(--color-primary-base);
+}
+
+.btn-outline:hover, .btn-outline:focus {
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+}
+
+.btn:disabled, .btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Formulários */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-md);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid var(--color-neutral-base);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    border-radius: var(--border-radius);
+}
+
+legend {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-dark);
+    padding: 0 var(--space-xs);
+}
+
+label {
+    display: block;
+    margin-top: var(--space-xs);
+    margin-bottom: 4px;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    border: 1px solid var(--color-neutral-base);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--color-primary-base);
+    box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
+    outline: none;
+}
+
+/* Validação Visual */
+input:required:invalid:not(:placeholder-shown) {
+    border-color: var(--color-error);
+}
+
+input:focus:required:invalid {
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: var(--color-success);
+}
+
+/* Cards (Para Projetos) */
+.card-grid {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: 1fr; /* Padrão mobile */
+}
+
+.card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: var(--space-sm);
+}
+
+.card-content h3 {
+    margin-top: 0;
+    color: var(--color-primary-dark);
+}
+
+.card-actions {
+    padding: var(--space-sm);
+    border-top: 1px solid var(--color-neutral-light);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Componentes de Feedback (Alerts, Toasts, Modals) - Simplificado */
+.alert {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-bold);
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    background-color: #e8f5e9; /* Light Green */
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.alert-error {
+    background-color: #ffebee; /* Light Red */
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+/* Badges e Tags */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-right: 4px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 10px;
+}
+
+.badge-primary {
+    color: var(--color-white);
+    background-color: var(--color-primary-base);
+}
+
+.badge-secondary {
+    color: var(--color-neutral-dark);
+    background-color: var(--color-secondary-base);
+}
+
+/* Media Queries para Cards */
+@media (min-width: 576px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
